@@ -11,6 +11,6 @@ development:
   database: dance_development
   << : *shared
 
-production:
-  database: dance_development
+test:
+  database: dance_test
   << : *shared

@@ -6,7 +6,15 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 
-gem 'capistrano-rails', group: :development
+group :development do
+  gem 'capistrano-rails'
+  gem 'rubocop'
+end
+
+group :test do
+  gem 'capybara'
+end
+
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
