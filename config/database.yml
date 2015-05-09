@@ -1,0 +1,16 @@
+shared: &shared
+  adapter: postgresql
+
+  username: dance
+  password: dance
+  host: localhost
+  encoding: UTF8
+  template: template0
+
+development:
+  database: dance_development
+  << : *shared
+
+production:
+  database: dance_development
+  << : *shared
