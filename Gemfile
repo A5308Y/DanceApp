@@ -5,6 +5,7 @@ gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'devise'
 
 group :development do
   gem 'capistrano-rails'
