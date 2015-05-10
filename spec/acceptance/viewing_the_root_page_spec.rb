@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'viewing the root page', type: :feature do
+describe 'Viewing the root page', type: :feature do
   let!(:only_course) { Course.create!(name: 'Dancing with the devils') }
 
   before do
