@@ -1,0 +1,3 @@
+bundle exec bin/rake
+bundle exec bin/rake documentation:generate
+bundle exec rubocop -R
