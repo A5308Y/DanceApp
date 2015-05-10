@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'registering a new course', type: :feature do
   context "When I'm logged in as a teacher" do
-    let(:teacher) { log_in_as :teacher }
+    let!(:teacher) { log_in_as :teacher }
 
     describe 'registering a new course' do
       it 'allows me to enter its location' do
