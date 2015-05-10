@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'registering a new course', type: :feature do
   context "When I'm logged in as a teacher" do
