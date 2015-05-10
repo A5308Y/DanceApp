@@ -10,6 +10,7 @@ gem 'devise'
 group :development do
   gem 'capistrano-rails'
   gem 'rubocop'
+  gem 'colorize'
 end
 
 group :test do

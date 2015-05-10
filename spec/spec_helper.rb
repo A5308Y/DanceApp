@@ -8,6 +8,6 @@ RSpec.configure do |config|
   end
 
   config.order = :random
-  config.profile_examples = 10
+  # config.profile_examples = 10
   # config.disable_monkey_patching!
 end

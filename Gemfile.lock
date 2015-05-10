@@ -201,6 +201,7 @@ DEPENDENCIES
   byebug
   capistrano-rails
   capybara
+  colorize
   devise
   jquery-rails
   launchy
