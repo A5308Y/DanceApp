@@ -4,10 +4,16 @@ Style/IfUnlessModifier:
   MaxLineLength: 100
 Style/WhileUntilModifier:
   MaxLineLength: 100
-Metrics/LineLength:
-  Max: 100
 Style/AlignHash:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+Metrics/MethodLength:
+  Max: 5
+Metrics/ParameterLists:
+  Max: 4
+
 AllCops:
   Include:
     - '**/Rakefile'
