@@ -1,4 +1,4 @@
-class CoursesFetcher
+class CoursesIndexFetcher
   def initialize(courses_relation)
     @courses_relation = courses_relation
   end
@@ -8,6 +8,6 @@ class CoursesFetcher
   end
 
   def nothing_found?
-    @courses_relation.empty?
+    @courses_relation.all.empty?
   end
 end

@@ -1,17 +1,18 @@
-require_relative '../../app/presenters/courses_presenter'
+require 'rails_helper'
 
-describe CoursesPresenter do
+describe CoursesIndexPresenter do
+  let(:presenter) { CoursesIndexPresenter.new(fetcher) }
   context 'if the fetcher returns ["Dance Dance Dance"] for names' do
     let(:fetcher) { double(names: ['Dance Dance Dance'], nothing_found?: false) }
 
     describe '#names' do
-      subject(:subject) { CoursesPresenter.new(fetcher).names }
+      subject(:subject) { presenter.names }
 
       it { is_expected.to match_array(['Dance Dance Dance']) }
     end
 
     describe '#empty_collection_message' do
-      subject(:subject) { CoursesPresenter.new(fetcher).empty_collection_message }
+      subject(:subject) { presenter.empty_collection_message }
 
       it { is_expected.to eq '' }
     end
@@ -21,7 +22,7 @@ describe CoursesPresenter do
     let(:fetcher) { double(nothing_found?: true) }
 
     describe '#empty_collection_message' do
-      subject(:subject) { CoursesPresenter.new(fetcher).empty_collection_message }
+      subject(:subject) { presenter.empty_collection_message }
 
       it { is_expected.to eq "Sorry. We couldn't find any courses." }
     end
