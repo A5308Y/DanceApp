@@ -12,3 +12,6 @@
 !/log/.keep
 /tmp
 rspec_documentation.txt
+
+*.sublime-project
+*.sublime-workspace
