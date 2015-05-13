@@ -1,5 +1,8 @@
+require_relative '../presenters/courses_presenter'
+require_relative '../fetchers/courses_fetcher'
+
 class CoursesController < ApplicationController
   def index
-    @courses = Course.all
+    @presenter = CoursesPresenter.new(CoursesFetcher.new(Course.all))
   end
 end
