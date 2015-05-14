@@ -11,11 +11,14 @@ group :development do
   gem 'capistrano-rails'
   gem 'rubocop'
   gem 'colorize'
+  gem 'sandi_meter'
+  gem 'rails_best_practices'
 end
 
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'simplecov'
 end
 
 group :development, :test do

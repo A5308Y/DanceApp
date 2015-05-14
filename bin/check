@@ -1,3 +1,5 @@
 bundle exec bin/rake
 bundle exec bin/rake documentation:generate
 bundle exec rubocop -R
+bundle exec sandi_meter -d
+bundle exec rails_best_practices .
