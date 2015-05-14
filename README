@@ -29,42 +29,55 @@ Please feel free to use a different markup language if you do not plan to run
 
 
 
-*** Features and Unit Specs ***
-
-Documentation::RawData
-  #generated_rspec_content
-    returns the content of the configured rspec_file
-  #introduction_content
-    returns the content of the configured introduction_file
-
-Documentation::RspecTrimmer
-  the result of #run
-    filters rspec output not useful for a documentation:
-      should not have lines starting with "Finished in"
-      should not have lines starting with "Randomized"
-      should not show the number of run examples and failures
-      should not have lines starting with "Run options"
-      but not lines that have the same words as rspec output in their description:
-        should include "Finished in"
-        should include "Randomized"
-        should include "failures"
-        should include "Run options"
-    ensures exactly one empty newline:
-      should end with the characters "\n"
-      should not end with the characters "\n" and "\n"
-    shows rspec's documentation output:
-      should start with "Documentation::RspecTrimmer\n  the result of #trimmed\n    should not include \"Randomized\""
-
-Documentation::Combiner
-  #run
-    hands the contents of the introcution_file and the trimmed rspec_file to the formatter
+*** Features ***
 
 Viewing the root page
   shows the list of all courses
   if a user exists
     allows the user to log in
 
-CoursesFetcher
+Registering a new course
+  When I'm logged in as a teacher
+    will show error messages on a failed validation (PENDING: Not yet implemented)
+    allows me to enter its name
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+
+  1) Registering a new course When I'm logged in as a teacher will show error messages on a failed validation
+     # Not yet implemented
+     # ./spec/features/creating_a_course_spec.rb:17
+
+
+
+
+*** Developer Documentation ***
+
+CoursesNewFetcher
+  #new_form_object
+    creates a new object
+
+Documentation::RawData
+  #introduction_content
+    returns the content of the configured introduction_file
+  #feature_content
+    returns the content of the configured feature_documentation_file for features
+  #unit_test_content
+    returns the content of the configured feature_documentation_file for developers
+
+Documentation::Combiner
+  #run
+    hands the contents of the introcution_file and the trimmed rspec_file to the formatter
+
+Documentation::Formatter
+  with colorizing strings given
+    should not include colorizing strings
+  the result of #run
+    should end with "should not include Randomized\nshould not end with characters\n"
+    should start with "To set up this app make sure to:\n1. install postgresql"
+    should include "\n*** Features ***\n"
+    should include "\n*** Developer Documentation ***\n"
+
+CoursesIndexFetcher
   #names
     if two courses are present
       returns a list of names from the database for a given list of courses
@@ -76,42 +89,39 @@ CoursesFetcher
     if the given collection is empty
       should be truthy
 
+Documentation::RspecTrimmer
+  the result of #run
+    shows rspec's documentation output:
+      should start with "Documentation::RspecTrimmer\n  the result of #trimmed\n    should not include \"Randomized\""
+    filters rspec output not useful for a documentation:
+      should not show the number of run examples and failures
+      should not have lines starting with "Run options"
+      should not have lines starting with "Finished in"
+      should not have lines starting with "Randomized"
+      but not lines that have the same words as rspec output in their description:
+        should include "failures"
+        should include "Run options"
+        should include "Finished in"
+        should include "Randomized"
+    ensures exactly one empty newline:
+      should end with the characters "\n"
+      should not end with the characters "\n" and "\n"
+
 Documentation::Writer
   #write
     writes the formatted result to the given io stream
 
-Documentation::Formatter
-  with colorizing strings given
-    should not include colorizing strings
-  the result of #run
-    should include "\n\n\n*** Features and Unit Specs ***\n\n"
-    should end with "should not include Randomized\nshould not end with characters"
-    should start with "To set up this app make sure to:\n1. install postgresql"
 
-CoursesPresenter
-  if the fechter returns no courses
-    #empty_collection_message
-      should eq "Sorry. We couldn't find any courses."
+
+
+
+CoursesIndexPresenter
   if the fetcher returns ["Dance Dance Dance"] for names
-    #empty_collection_message
-      should eq ""
     #names
       should contain exactly "Dance Dance Dance"
+    #empty_collection_message
+      should eq ""
+  if the fechter returns no courses
+    #empty_collection_message
+      should eq "Keine Kurse gefunden"
 
-Registering a new course
-  When I'm logged in as a teacher
-    allows me to enter its location (FAILED - 1)
-
-Failures:
-
-  1) Registering a new course When I'm logged in as a teacher allows me to enter its location
-     Failure/Error: let!(:teacher) { log_in_as :teacher }
-     NoMethodError:
-       undefined method `log_in_as' for #<RSpec::ExampleGroups::RegisteringANewCourse::WhenIMLoggedInAsATeacher:0x007fc79f1efa50>
-     # ./spec/features/creating_a_course_spec.rb:5:in `block (3 levels) in <top (required)>'
-
-29 examples, 1 failure
-
-Failed examples:
-
-rspec ./spec/features/creating_a_course_spec.rb:7 # Registering a new course When I'm logged in as a teacher allows me to enter its location

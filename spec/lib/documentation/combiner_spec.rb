@@ -6,7 +6,12 @@ describe Documentation::Combiner do
     let(:trimmer) { double(:trimmer) }
     let(:formatter) { double(:formatter) }
     let(:raw_data) do
-      double(:raw_data, introduction_content: 'INTRO', generated_rspec_content: 'RSPEC')
+      double(
+        :raw_data,
+        introduction_content: 'INTRO',
+        feature_content: 'FEATURES',
+        developer_content: 'DEVELOPER'
+      )
     end
 
     subject(:result) do
@@ -14,8 +19,11 @@ describe Documentation::Combiner do
     end
 
     it 'hands the contents of the introcution_file and the trimmed rspec_file to the formatter' do
-      expect(trimmer).to receive(:run).with('RSPEC').and_return 'RSPE'
-      expect(formatter).to receive(:run).with('INTRO', 'RSPE').and_return 'formatted_result'
+      expect(trimmer).to receive(:run).with('FEATURES').and_return 'FEATURE'
+      expect(trimmer).to receive(:run).with('DEVELOPER').and_return 'DEVELOPE'
+      expect(formatter).to(
+        receive(:run).with('INTRO', 'FEATURE', 'DEVELOPE')
+      ).and_return 'formatted_result'
 
       expect(subject.run).to eq 'formatted_result'
     end

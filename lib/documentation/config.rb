@@ -8,8 +8,12 @@ module Documentation
       INTRODUCTION_PATH
     end
 
-    def self.generated_rspec_path
-      GENERATED_RSPEC_PATH
+    def self.feature_documentation_path
+      FEATURE_DOCUMENTATION_PATH
+    end
+
+    def self.unit_documentation_path
+      UNIT_DOCUMENTATION_PATH
     end
   end
 end

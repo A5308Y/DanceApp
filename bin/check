@@ -1,4 +1,7 @@
-bundle exec bin/rake
+bundle exec rspec spec/features --format progress --format documentation --out tmp/feature_documentation.txt
+bundle exec rspec spec/presenters --format progress --format documentation --out tmp/presenter_documentation.txt
+bundle exec rspec spec --format progress --format documentation --out tmp/unit_documentation.txt --exclude-pattern "**/presenters/*_spec.rb, **/features/*_spec.rb"
+cat tmp/presenter_documentation.txt >> tmp/unit_documentation.txt
 bundle exec bin/rake documentation:generate
 bundle exec rubocop -R
 bundle exec sandi_meter -d

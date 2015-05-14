@@ -7,7 +7,7 @@ module Documentation
     end
 
     def run
-      @formatter.run(introduction_content, trimmed_rspec_content)
+      @formatter.run(introduction_content, trimmed_feature_content, trimmed_developer_content)
     end
 
     private
@@ -16,8 +16,12 @@ module Documentation
       @raw_data.introduction_content
     end
 
-    def trimmed_rspec_content
-      @trimmer.run(@raw_data.generated_rspec_content)
+    def trimmed_feature_content
+      @trimmer.run(@raw_data.feature_content)
+    end
+
+    def trimmed_developer_content
+      @trimmer.run(@raw_data.developer_content)
     end
   end
 end

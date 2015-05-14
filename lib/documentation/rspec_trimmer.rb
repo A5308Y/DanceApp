@@ -15,7 +15,7 @@ module Documentation
     end
 
     def exclude_line_conditions
-      [/^Finished in.*/, /^Randomized.*/, /^\d+ examples, \d+ failures/]
+      [/^Finished in.*/, /^Randomized.*/, /^.*\d+ examples, \d+ failures/]
     end
   end
 end
