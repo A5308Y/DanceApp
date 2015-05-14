@@ -24,7 +24,7 @@ describe CoursesIndexPresenter do
     describe '#empty_collection_message' do
       subject(:subject) { presenter.empty_collection_message }
 
-      it { is_expected.to eq "Sorry. We couldn't find any courses." }
+      it { is_expected.to eq 'Keine Kurse gefunden' }
     end
   end
 end

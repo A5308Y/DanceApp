@@ -10,7 +10,7 @@ class CoursesIndexPresenter
   end
 
   def empty_collection_message
-    @fetcher.nothing_found? ? "Sorry. We couldn't find any courses." : ''
+    @fetcher.nothing_found? ? I18n.t('no_courses_message') : ''
   end
 
   def new_course_link
