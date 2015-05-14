@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe CoursesIndexPresenter do
   let(:presenter) { CoursesIndexPresenter.new(fetcher) }
+
   context 'if the fetcher returns ["Dance Dance Dance"] for names' do
     let(:fetcher) { double(names: ['Dance Dance Dance'], nothing_found?: false) }
 
