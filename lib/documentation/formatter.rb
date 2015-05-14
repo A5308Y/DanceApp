@@ -1,15 +1,11 @@
 require 'colorize'
+require 'erb'
 
 module Documentation
   class Formatter
     def run(introduction_content, rspec_content)
-      "#{introduction_content}#{rspec_heading}#{rspec_content.uncolorize}"
-    end
-
-    private
-
-    def rspec_heading
-      "\n\n\n*** Features and Unit Specs ***\n\n"
+      template = File.read('lib/documentation/formatted_content.txt.erb')
+      ERB.new(template).result(binding).uncolorize
     end
   end
 end
