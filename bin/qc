@@ -1,1 +1,1 @@
-rspec spec --exclude-pattern "**/presenters/*_spec.rb, **/features/*_spec.rb"
+rspec spec --exclude-pattern "**/presenters/*_spec.rb, **/features/*_spec.rb" --fail-fast
