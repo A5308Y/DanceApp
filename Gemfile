@@ -13,6 +13,7 @@ group :development do
   gem 'colorize'
   gem 'sandi_meter'
   gem 'rails_best_practices'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
