@@ -2,4 +2,4 @@
 --require spec_helper
 --format progress
 --format documentation
---out rspec_documentation.txt
+--out tmp/rspec_documentation.txt
