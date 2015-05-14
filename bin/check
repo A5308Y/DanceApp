@@ -3,6 +3,7 @@ bundle exec rspec spec/presenters --format progress --format documentation --out
 bundle exec rspec spec --format progress --format documentation --out tmp/unit_documentation.txt --exclude-pattern "**/presenters/*_spec.rb, **/features/*_spec.rb" --order defined
 cat tmp/presenter_documentation.txt >> tmp/unit_documentation.txt
 bundle exec bin/rake documentation:generate
+COVERAGE=true bundle exec rake
 bundle exec rubocop -R
 bundle exec sandi_meter -d
 bundle exec rails_best_practices .
